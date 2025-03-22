@@ -6,7 +6,11 @@ interface IParams {
   productId: string;
 }
 
-export default function ProductPage({ params }: { params: IParams }) {
+interface ProductPageProps {
+  params: IParams;
+}
+
+export default function ProductPage({ params }: ProductPageProps) {
   const product = products.find((item) => item.id === params.productId);
 
   if (!product) {
