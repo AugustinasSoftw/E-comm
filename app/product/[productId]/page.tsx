@@ -1,4 +1,3 @@
-import { Metadata } from "next";
 import Container from "@/app/components/Container";
 import ProductDetails from "./ProductDetails";
 import { products } from "@/utils/products";
