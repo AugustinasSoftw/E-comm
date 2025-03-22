@@ -1,17 +1,16 @@
+import { Metadata } from "next";
 import Container from "@/app/components/Container";
 import ProductDetails from "./ProductDetails";
-import { product } from "@/utils/product";
 import { products } from "@/utils/products";
 
-interface IPrams {
-  productId: string;
+// Correct dynamic route typing from Next.js App Router
+interface Props {
+  params: {
+    productId: string;
+  };
 }
 
-interface PageProps {
-  params: IPrams;
-}
-
-const Product = async ({ params }: PageProps) => {
+const ProductPage = ({ params }: Props) => {
   const product = products.find((item) => item.id === params.productId);
 
   if (!product) {
@@ -27,4 +26,4 @@ const Product = async ({ params }: PageProps) => {
   );
 };
 
-export default Product;
+export default ProductPage;
