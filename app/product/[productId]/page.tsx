@@ -1,15 +1,15 @@
-import { Metadata } from "next";
 import Container from "@/app/components/Container";
 import ProductDetails from "./ProductDetails";
 import { products } from "@/utils/products";
 
-type Props = {
+// ✅ Correct typing for Next.js App Router dynamic route
+interface PageProps {
   params: {
     productId: string;
   };
-};
+}
 
-const ProductPage = ({ params }: Props) => {
+const ProductPage = ({ params }: PageProps) => {
   const product = products.find((item) => item.id === params.productId);
 
   if (!product) {
