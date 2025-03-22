@@ -1,13 +1,17 @@
 import Container from "@/app/components/Container";
-import { product } from "@/utils/product";
 import ProductDetails from "./ProductDetails";
+import { product } from "@/utils/product";
 
 interface IPrams {
-  productId?: string;
+  productId: string;
 }
 
-const Product = ({ params }: { params: IPrams }) => {
-  console.log("params", params);
+interface PageProps {
+  params: IPrams;
+}
+
+const Product = ({ params }: PageProps) => {
+  console.log("params:", params);
 
   return (
     <div className="p-8">

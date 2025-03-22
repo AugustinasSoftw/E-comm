@@ -16,7 +16,7 @@ export default function Home() {
         2xl:gird-cols-6 gap-8"
         >
           {products.map((product: any) => {
-            return <ProductCard data={product} />;
+            return <ProductCard key={product.id} data={product} />;
           })}
         </div>
       </Container>
