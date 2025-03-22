@@ -2,20 +2,16 @@ import Container from "@/app/components/Container";
 import ProductDetails from "./ProductDetails";
 import { products } from "@/utils/products";
 
-interface IParams {
-  productId: string;
-}
-
-interface ProductPageProps {
-  params: IParams;
-}
-
 interface PageProps {
-  params: IParams;
-  searchParams?: { [key: string]: string | string[] | undefined };
+  params: { productId: string };
 }
 
-// Match Next.js required PageProps interface exactly:
+export async function generateStaticParams() {
+  return products.map((product) => ({
+    productId: product.id,
+  }));
+}
+
 export default async function ProductPage({ params }: PageProps) {
   const product = products.find((item) => item.id === params.productId);
 
