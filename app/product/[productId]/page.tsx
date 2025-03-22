@@ -1,15 +1,14 @@
-import Container from "@/app/components/Container";
-import ProductDetails from "./ProductDetails";
 import { products } from "@/utils/products";
+import ProductDetails from "./ProductDetails";
+import Container from "@/app/components/Container";
 
-// ✅ Correct typing for Next.js App Router dynamic route
 interface PageProps {
   params: {
     productId: string;
   };
 }
 
-const ProductPage = ({ params }: PageProps) => {
+const Product = ({ params }: PageProps) => {
   const product = products.find((item) => item.id === params.productId);
 
   if (!product) {
@@ -25,4 +24,4 @@ const ProductPage = ({ params }: PageProps) => {
   );
 };
 
-export default ProductPage;
+export default Product;
