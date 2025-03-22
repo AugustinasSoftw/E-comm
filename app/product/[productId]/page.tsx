@@ -10,7 +10,9 @@ interface ProductPageProps {
   params: IParams;
 }
 
-export default function ProductPage({ params }: ProductPageProps) {
+// Notice the async keyword here:
+export default async function ProductPage({ params }: ProductPageProps) {
+  // You can optionally await async operations here in future (database calls, API fetches)
   const product = products.find((item) => item.id === params.productId);
 
   if (!product) {
