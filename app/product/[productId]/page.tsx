@@ -10,9 +10,13 @@ interface ProductPageProps {
   params: IParams;
 }
 
-// Notice the async keyword here:
-export default async function ProductPage({ params }: ProductPageProps) {
-  // You can optionally await async operations here in future (database calls, API fetches)
+interface PageProps {
+  params: IParams;
+  searchParams?: { [key: string]: string | string[] | undefined };
+}
+
+// Match Next.js required PageProps interface exactly:
+export default async function ProductPage({ params }: PageProps) {
   const product = products.find((item) => item.id === params.productId);
 
   if (!product) {
