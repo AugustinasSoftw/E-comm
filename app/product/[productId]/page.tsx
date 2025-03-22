@@ -1,14 +1,13 @@
-import { products } from "@/utils/products";
-import ProductDetails from "./ProductDetails";
+import { Metadata } from "next";
 import Container from "@/app/components/Container";
+import ProductDetails from "./ProductDetails";
+import { products } from "@/utils/products";
 
-interface PageProps {
-  params: {
-    productId: string;
-  };
+interface IParams {
+  productId: string;
 }
 
-const Product = ({ params }: PageProps) => {
+export default function ProductPage({ params }: { params: IParams }) {
   const product = products.find((item) => item.id === params.productId);
 
   if (!product) {
@@ -22,6 +21,4 @@ const Product = ({ params }: PageProps) => {
       </Container>
     </div>
   );
-};
-
-export default Product;
+}
